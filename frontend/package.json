@@ -1,0 +1,11 @@
+{
+  "name": "personal-cloud-storage-frontend",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "serve -s build",
+    "build": "mkdir -p build && cp -r src/* build/"
+  },
+  "dependencies": {
+    "serve": "^14.0.0"
+  }
+}

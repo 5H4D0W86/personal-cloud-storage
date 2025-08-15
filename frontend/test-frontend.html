@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Personal Cloud Storage</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .test-area { border: 2px solid #007bff; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        #result { margin-top: 20px; padding: 10px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🚀 Personal Cloud Storage Test</h1>
+    
+    <div class="test-area">
+        <h3>Test API Connection</h3>
+        <button onclick="testAPI()">Test Upload API</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        async function testAPI() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Testing API...';
+            
+            try {
+                const response = await fetch('https://bthp771k53.execute-api.us-west-1.amazonaws.com/prod/upload', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        fileName: 'web-test.txt',
+                        fileContent: btoa('Hello from web interface!'),
+                        contentType: 'text/plain'
+                    })
+                });
+                
+                const result = await response.json();
+                resultDiv.innerHTML = `<div style="background: #d4edda; padding: 10px; border-radius: 5px;">
+                    ✅ Success! ${JSON.stringify(result)}
+                </div>`;
+            } catch (error) {
+                resultDiv.innerHTML = `<div style="background: #f8d7da; padding: 10px; border-radius: 5px;">
+                    ❌ Error: ${error.message}
+                </div>`;
+            }
+        }
+    </script>
+</body>
+</html>
