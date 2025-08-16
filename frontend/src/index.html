@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Cloud Storage</title>
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
@@ -62,14 +64,14 @@
                         const result = await response.json();
 
                         if (response.ok) {
-                            showStatus(`✅ ${file.name} uploaded successfully!`, 'success');
+                            showStatus(`File ${file.name} uploaded successfully!`, 'success');
                         } else {
-                            showStatus(`❌ Upload failed: ${result.error || 'Unknown error'}`, 'error');
+                            showStatus(`Upload failed: ${result.error || 'Unknown error'}`, 'error');
                         }
                     };
                     reader.readAsBinaryString(file);
                 } catch (error) {
-                    showStatus(`❌ Upload failed: ${error.message}`, 'error');
+                    showStatus(`Upload failed: ${error.message}`, 'error');
                 }
             };
 
@@ -100,7 +102,7 @@
 
             return (
                 <div className="container">
-                    <h1>🚀 Personal Cloud Storage</h1>
+                    <h1>Personal Cloud Storage</h1>
                     <p>Upload files to your serverless cloud storage!</p>
                     
                     <div 
@@ -111,7 +113,7 @@
                         onClick={() => document.getElementById('fileInput').click()}
                     >
                         <div>
-                            <h3>📤 Drop files here or click to upload</h3>
+                            <h3>Drop files here or click to upload</h3>
                             <p>Powered by AWS Lambda + S3</p>
                         </div>
                         <input
@@ -129,12 +131,12 @@
                     )}
 
                     <div className="file-list">
-                        <h3>📋 API Endpoint</h3>
+                        <h3>API Endpoint</h3>
                         <div className="file-item">
                             <code style={{fontSize: '12px', color: '#666'}}>
                                 {API_ENDPOINT}
                             </code>
-                            <span style={{color: '#28a745', fontWeight: 'bold'}}>🟢 LIVE</span>
+                            <span style={{color: '#28a745', fontWeight: 'bold'}}>LIVE</span>
                         </div>
                     </div>
                 </div>
