@@ -1,77 +1,85 @@
-# Personal Cloud Storage - AWS Implementation
+# Personal Cloud Storage – AWS Implementation
 
 ## Vision
-A secure, scalable personal cloud storage solution built on AWS that provides file upload, download, sharing, and synchronization capabilities. This project demonstrates end-to-end cloud architecture using serverless technologies and modern web development practices.
+This project is a secure and scalable personal cloud storage solution built entirely on AWS. It supports file upload, download, sharing, and synchronization, while demonstrating end-to-end cloud architecture using serverless technologies and modern web development practices.
 
 ## Architecture Overview
 ```
-Frontend (React) → API Gateway → Lambda Functions → S3 Storage
-                              ↓
-                          DynamoDB (metadata)
-                              ↓ 
-                          Cognito (auth)
-                              ↓
-                          CloudFront (CDN)
-```
 
-**Core AWS Services:**
-- **S3** - File storage backend
-- **Lambda** - Serverless file processing 
-- **API Gateway** - RESTful API endpoints
-- **DynamoDB** - File metadata and user data
-- **Cognito** - User authentication & authorization
-- **CloudFront** - CDN for fast global delivery
-- **VPC** - Secure networking layer
+React Frontend → API Gateway → Lambda Functions → S3 Storage
+↓
+DynamoDB (metadata)
+↓
+Cognito (authentication)
+↓
+CloudFront (CDN)
+
+````
+
+### Core AWS Services
+- **Amazon S3** – Object storage backend for uploaded files  
+- **AWS Lambda** – Serverless file processing and API integration  
+- **Amazon API Gateway** – RESTful API endpoints  
+- **Amazon DynamoDB** – Metadata and user data storage  
+- **Amazon Cognito** – User authentication and authorization  
+- **Amazon CloudFront** – Global CDN for optimized content delivery  
+- **Amazon VPC** – Secure networking layer  
+
+---
 
 ## Features Roadmap
 
-### Phase 1: Core Storage (Weeks 1-3)
-- [ ] User registration and authentication
-- [ ] File upload/download functionality
-- [ ] Basic folder structure
-- [ ] Simple web interface
-- [ ] File metadata storage
+**Phase 1: Core Storage (Weeks 1–3)**  
+- User registration and authentication  
+- File upload/download functionality  
+- Basic folder structure  
+- Simple web interface  
+- File metadata storage  
 
-### Phase 2: Enhanced Features (Weeks 4-6)
-- [ ] File sharing with secure links
-- [ ] Image thumbnail generation
-- [ ] Search functionality
-- [ ] Usage analytics dashboard
-- [ ] Email notifications
+**Phase 2: Enhanced Features (Weeks 4–6)**  
+- Secure file sharing with expiring links  
+- Image thumbnail generation  
+- Search functionality  
+- Usage analytics dashboard  
+- Email notifications  
 
-### Phase 3: Advanced Features (Weeks 7-10)
-- [ ] File versioning
-- [ ] Real-time synchronization
-- [ ] Collaboration features
-- [ ] Mobile app (React Native)
-- [ ] Desktop sync client
+**Phase 3: Advanced Features (Weeks 7–10)**  
+- File versioning  
+- Real-time synchronization  
+- Collaboration features  
+- Mobile application (React Native)  
+- Desktop synchronization client  
 
-## Tech Stack
+---
 
-**Backend:**
-- AWS Lambda (Node.js/Python)
-- API Gateway
-- S3
-- DynamoDB
-- Cognito
+## Technology Stack
 
-**Frontend:**
-- React.js
-- AWS SDK for JavaScript
-- Material-UI or Tailwind CSS
+**Backend**  
+- AWS Lambda (Node.js / Python)  
+- Amazon API Gateway  
+- Amazon S3  
+- Amazon DynamoDB  
+- Amazon Cognito  
 
-**Infrastructure:**
-- Terraform/CloudFormation
-- GitHub Actions (CI/CD)
-- CloudWatch (monitoring)
+**Frontend**  
+- React.js  
+- AWS SDK for JavaScript  
+- Material-UI or Tailwind CSS  
+
+**Infrastructure**  
+- Terraform / CloudFormation for IaC  
+- GitHub Actions (CI/CD pipelines)  
+- Amazon CloudWatch (monitoring and alerting)  
+
+---
 
 ## Getting Started
 
 ### Prerequisites
-- AWS Account with appropriate permissions
-- Node.js 18+ 
-- Terraform (for infrastructure)
-- Git
+- AWS Account with appropriate IAM permissions  
+- Node.js 18+  
+- Terraform installed locally  
+- Git  
 
 ### Local Development Setup
 ```bash
@@ -82,7 +90,7 @@ cd personal-cloud-storage
 # Install dependencies
 npm install
 
-# Set up AWS credentials
+# Configure AWS credentials
 aws configure
 
 # Deploy infrastructure
@@ -93,33 +101,56 @@ terraform apply
 
 # Start development server
 npm run dev
-```
+````
+
+---
 
 ## Project Structure
+
 ```
+personal-cloud-storage/
 ├── frontend/          # React web application
 ├── backend/           # Lambda functions
 ├── infrastructure/    # Terraform configurations
-├── docs/             # Documentation
-└── tests/            # Test suites
+├── docs/              # Documentation (architecture diagrams, ADRs, runbooks)
+└── tests/             # Unit and integration tests
 ```
 
+---
+
 ## Cost Estimation
-- **Development**: Free tier eligible
-- **Light usage** (50GB): ~$5-10/month
-- **Medium usage** (500GB): ~$15-25/month
+
+* **Development:** AWS Free Tier eligible
+* **Light usage (50GB):** \~\$5–10 per month
+* **Medium usage (500GB):** \~\$15–25 per month
+
+---
 
 ## Security Features
-- End-to-end encryption
-- IAM role-based access control
-- Secure file sharing with expiration
-- Audit logging
+
+* End-to-end encryption for file storage
+* IAM role-based access control
+* Secure file sharing with expiring links
+* Audit logging with CloudWatch
+
+---
 
 ## Contributing
-This is a personal learning project, but feedback and suggestions are welcome!
+
+This is a personal learning and development project. Feedback, suggestions, and contributions are welcome.
+
+---
 
 ## License
+
 MIT License
 
 ---
-*Built as part of cloud engineering learning journey*
+
+**Built as part of a cloud engineering learning journey to practice serverless design, infrastructure as code, and professional DevOps workflows.**
+
+```
+
+---
+
+
